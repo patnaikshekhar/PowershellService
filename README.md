@@ -4,9 +4,9 @@ This is a service that can be called via a custom logic app connector to run a P
 
 ## Usage
 
-If installed on a VM then it needs (node)[https://nodejs.org/en/download/] to be installed.
+If installed on a VM then it needs [node](https://nodejs.org/en/download/) to be installed.
 
-`powershell
+```powershell
 $env:SCRIPTS_PATH = 'C:\Scripts'
 $env:PORT = 8080
 $env:QUEUE = 'scriptresults'
@@ -14,4 +14,4 @@ $env:AZURE_SERVICEBUS_CONNECTION_STRING = 'put your endpoint for the service bus
 
 node main.js
 
-`
+```

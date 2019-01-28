@@ -1,0 +1,58 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Powershell API
+host: localhost:8080
+basePath: /api
+schemes:
+  - http
+consumes:
+ - application/json
+produces:
+  - application/json
+paths:
+  '/powershell':
+    post:
+      description: Runs a powershell script
+      operationId: powershell
+      parameters:
+        - name: "data"
+          in: "body"
+          description: "Pet to add to the store"
+          required: true
+          schema: 
+            $ref: "#/definitions/RunScript"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/PowershellResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+definitions:
+  RunScript:
+    type: object
+    required:
+      - requestID
+      - scriptName
+    properties:
+      requestID:
+        type: string
+      scriptName:
+        type: string
+      arguments:
+        type: string
+  PowershellResponse:
+    type: object
+    properties:
+      status:
+        type: string
+  ErrorResponse:
+    type: object
+    properties:
+      status:
+        type: string
+      error:
+        type: string

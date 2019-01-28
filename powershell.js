@@ -11,7 +11,7 @@ module.exports = (scriptName, reqId, args, callback) => {
     })
     
     // Set the command for the script
-    ps.addCommand(`${SCRIPTS_PATH}\\${scriptName} ${args}`)
+    ps.addCommand(`${SCRIPTS_PATH}\\${scriptName} ${args ? args : ''}`)
 
     log.info(`Running powershell for ${reqId}`)
 
